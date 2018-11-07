@@ -1,0 +1,43 @@
+body {
+	background-color: lightgrey;
+}
+
+#container {
+	width: 50vw;
+	height: 100vh;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	position: relative;
+	background-color: lightblue;
+}
+
+#header {
+	left: auto;
+	width: 100%;
+	height: 10vh;
+	border-style: solid;
+	border-radius: 10px;
+	border-color: black;
+}
+
+.header_link {
+	margin: auto;
+	width: 80%;
+	height: 10vh;
+	display: block;
+	text-align: center;
+}
+
+#navbar {
+	margin-top:20px;
+	width: 10vw;
+	border-style: dotted;
+	border-width: medium;
+	border-color:black;
+}
+
+a.navigation_link {
+	color:pink;
+	text-decoration-style: none;
+}
