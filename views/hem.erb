@@ -17,13 +17,15 @@
 			   Nulla quis ipsum id dui interdum venenatis.
 	</p>
 </div>
-<div class="feed_item">
-	<form class="feed_form" action="feed_post" method="post">
-		<input type="text" name="feed_text" value="">
-	</form>
-</div>
+<% if @user != nil %>
+	<div class="feed_item">
+		<form class="feed_form" action="feed_post" method="post">
+			<textarea name="feed_text" class="feed_text_box"></textarea>
+			<input type="submit" value="Skicka">
+		</form>
+	</div>
+<% end %>
 
-<%= @user %> 
 <div class="news_feed">
 	<% @posts.each do |post| %>
 	<div class="news_item">

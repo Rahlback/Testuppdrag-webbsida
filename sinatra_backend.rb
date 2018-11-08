@@ -16,8 +16,8 @@ end
 
 
 def current_user
-	if session[:user_id]
-		return USERS.find { |u| u.id == session[:user_id] }
+	if session[:user_id] != nil
+		return USERS.find { |u| u.id == session[:user_id]}
 	else
 		return nil
 	end
@@ -29,17 +29,18 @@ USERS = [
   User.new(1, 'janne', hash_password('losenord')),
 ]
 
-# enable :inline_templates
+
 enable :sessions
 
 get '/' do
 	directory = "./news_feed_posts"
 	@posts = Dir.glob(directory + "/*.post")
-	@user = session[:user_id]
+	@user = current_user.id
 	erb :hem
 end
 
 get '/login' do
+	@user = current_user
 	erb :login
 end
 
@@ -56,8 +57,13 @@ post '/login' do
 	end
 end
 
+post '/logout' do
+	session.clear
+	redirect '/'
+end
+
 post '/feed_post' do
-	
+
 end
 
 get '/tjanster' do

@@ -98,6 +98,10 @@ p.rubrik1 {
 	/* font-family: Arial; */
 }
 
+.feed_text_box {
+	width: 1000px;
+}
+
 .news_feed {
 	/* float: left; */
 	border-style: solid;
