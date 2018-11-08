@@ -9,20 +9,21 @@
 <body>
 	<div id="container">
 
-		<a href="/" class="header_link">
-			<div id="header" class="header_image">
-				<p>Hem</p>
-			</div>
-		</a>
+		<div id="header" class="header_image">
+			<a href="/" class="header_link">
+				<p id="home_button_text">Jannes Inredning</p>
+			</a>
 
-		<div id="navbar">
-			<ul>
-				<li><a href="/" class="navigation_link">Hem</a> </li>
-				<li><a href="/tjanster" class="navigation_link">Tjänster</a> </li>
-				<li><a href="/galleri" class="navigation_link">Galleri</a> </li>
-				<li><a href="/kontakt" class="navigation_link">Kontakt</a> </li>
-			</ul>
+			<div id="navbar">
+				<ul>
+					<li><a href="/" class="navigation_link">Hem</a> </li>
+					<li><a href="/tjanster" class="navigation_link">Tjänster</a> </li>
+					<li><a href="/galleri" class="navigation_link">Galleri</a> </li>
+					<li><a href="/kontakt" class="navigation_link">Kontakt</a> </li>
+				</ul>
+			</div>
 		</div>
+
 
 		<div id="content">
 			<%= yield %>
