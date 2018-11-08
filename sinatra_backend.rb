@@ -7,6 +7,25 @@ layout 'layout.erb'
 
 $LANG = 'utf-8'
 
+helpers do
+	def current_user
+		if session[:user_id] != nil
+			return USERS.find { |u| u.id == session[:user_id]}
+		else
+			return nil
+		end
+	end
+
+	def logged_in?
+		if current_user != nil
+			return true
+		else
+			return false
+		end
+	end
+end
+
+
 def hash_password(password)
   BCrypt::Password.create(password).to_s
 end
@@ -16,13 +35,7 @@ def verify_password(password, hash)
 end
 
 
-def current_user
-	if session[:user_id] != nil
-		return USERS.find { |u| u.id == session[:user_id]}
-	else
-		return nil
-	end
-end
+
 
 
 User = Struct.new(:id, :username, :password_hash)

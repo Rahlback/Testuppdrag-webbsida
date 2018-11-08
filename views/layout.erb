@@ -13,7 +13,7 @@
 			<a href="/" class="header_link">
 				<p id="home_button_text">Jannes Inredning</p>
 			</a>
-
+			<p><%= if (logged_in?) then current_user.username + ' är inloggad'end %></p>
 			<div id="navbar">
 				<ul>
 					<li><a href="/" >Hem</a> </li>
