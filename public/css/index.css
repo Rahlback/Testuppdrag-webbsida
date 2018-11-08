@@ -55,11 +55,11 @@ body {
 	overflow: hidden;
 }
 
-li {
+#navbar li {
     float: left;
 }
 
-li a {
+#navbar li a {
     display: block;
     color: white;
     text-align: center;
@@ -67,7 +67,7 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+#navbar li a:hover {
     background-color: #111111;
 }
 
@@ -107,8 +107,12 @@ p.rubrik1 {
 	padding: 10px;
 }
 
+.tjanster_headline_input {
+	width: 400px;
+}
+
 .feed_text_box {
-	width: 50vw;
+	width: 398px;
 	height: 10vh;
 }
 

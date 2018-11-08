@@ -76,7 +76,24 @@ post '/feed_post' do
 end
 
 get '/tjanster' do
+	@file = File.read("./public/custom_view/tjanster.custom")
+	@user = current_user
 	erb :tjanster
+end
+
+post '/tjanster_form_post' do
+	if (params[:rubrik] != "")
+		text = '<p class="rubrik1">' + "\n"
+		text = text + params[:rubrik] + "\n" + "</p>"
+	else
+		text = ""
+	end
+	
+	text = text + params[:tjanster_textarea]
+	f = File.open("./public/custom_view/tjanster.custom","w")
+	f.write(text)
+	f.close
+	redirect '/tjanster'
 end
 
 get '/kontakt' do

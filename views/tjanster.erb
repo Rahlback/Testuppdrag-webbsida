@@ -1,1 +1,17 @@
-<p>Tjanster</p>
+<div class="presentation">
+	<%= @file %>
+</div>
+
+<% if @user != nil %>
+	<div class="tjanster">
+		<form class="feed_form" action="tjanster_form_post" method="post">
+			<div>
+				<input type="text" name="rubrik" value="" class="tjanster_headline_input">
+			</div>
+			<div>
+				<textarea name="tjanster_textarea" class="feed_text_box"><%= @file %></textarea>
+			</div>
+			<input type="submit" value="Skicka">
+		</form>
+	</div>
+<% end %>
