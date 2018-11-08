@@ -19,5 +19,9 @@
 </div>
 
 <div class="news_feed">
-
+	<% @posts.each do |post| %>
+	<div class="news_item">
+		<%= File.read(post) %>
+	</div>
+	<% end %>
 </div>

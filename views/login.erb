@@ -1,0 +1,11 @@
+<form class="login_form" action="login" method="post">
+	Användarnamn: <input type="text" name="username" value="">
+	Lösenord: <input type="password" name="losenord" value="">
+	<input type="submit"  value="Skicka">
+</form>
+
+<% if (@error_message != nil) %>
+	<div>
+		<p> <%=@error_message %> </p>
+	</div>
+<% end %>
