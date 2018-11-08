@@ -1,5 +1,7 @@
 <% @pictures.each do |picture| %>
 	<div class="image_div">
-		<img src="<%= picture %>" alt="">
+		<a href="./galleri/<%=File.basename(picture)%>">
+			<img src="<%= picture %>" width="100xp" height="100px" class="thumbnail">
+		</a>
 	</div>
 <% end %>

@@ -101,8 +101,16 @@ get '/kontakt' do
 end
 
 get '/galleri' do
-	@pictures = Dir.glob("./public/bilder/galleri/*")
+	directory = Dir.pwd
+	Dir.chdir("./public")
+	@pictures = Dir.glob("./bilder/galleri/*")
+	Dir.chdir(directory)
 	erb :galleri
+end
+
+get '/galleri/:file' do
+	@image = params[:file]
+	erb :galleri_show_single_image
 end
 
 get '/login' do
