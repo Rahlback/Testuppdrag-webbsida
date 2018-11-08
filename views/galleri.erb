@@ -1,1 +1,5 @@
-<p>Galleri</p>
+<% @pictures.each do |picture| %>
+	<div class="image_div">
+		<img src="<%= picture %>" alt="">
+	</div>
+<% end %>

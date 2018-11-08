@@ -64,14 +64,14 @@ get '/logout' do
 end
 
 post '/feed_post' do
-	if current_user == 1
+	if current_user.id == 1
 		time = Time.now
 		file_name = "./news_feed_posts/#{time.year}_#{time.month}_#{time.day}_#{time.hour}#{time.min}"
 		file_name = file_name + "," + Dir.glob("#{file_name}*").size.to_s + ".post"
 		f = File.new(file_name, "w")
 		f.write(params[:feed_text])
 		f.close
-		end
+	end
 	redirect '/'
 end
 
@@ -88,7 +88,7 @@ post '/tjanster_form_post' do
 	else
 		text = ""
 	end
-	
+
 	text = text + params[:tjanster_textarea]
 	f = File.open("./public/custom_view/tjanster.custom","w")
 	f.write(text)
@@ -101,6 +101,7 @@ get '/kontakt' do
 end
 
 get '/galleri' do
+	@pictures = Dir.glob("./public/bilder/galleri/*")
 	erb :galleri
 end
 
