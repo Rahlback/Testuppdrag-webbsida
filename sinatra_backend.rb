@@ -14,6 +14,16 @@ def verify_password(password, hash)
   BCrypt::Password.new(hash) == password
 end
 
+
+def current_user
+	if session[:user_id]
+		return USERS.find { |u| u.id == session[:user_id] }
+	else
+		return nil
+	end
+end
+
+
 User = Struct.new(:id, :username, :password_hash)
 USERS = [
   User.new(1, 'janne', hash_password('losenord')),
@@ -25,6 +35,7 @@ enable :sessions
 get '/' do
 	directory = "./news_feed_posts"
 	@posts = Dir.glob(directory + "/*.post")
+	@user = session[:user_id]
 	erb :hem
 end
 
@@ -43,6 +54,10 @@ post '/login' do
 		@error_message = 'Användarnamn eller lösenord är inkorrekt'
 		erb :login
 	end
+end
+
+post '/feed_post' do
+	
 end
 
 get '/tjanster' do
