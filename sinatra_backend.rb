@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/reloader"
 require "bcrypt"
+require "date"
 
 layout 'layout.erb'
 
@@ -35,7 +36,7 @@ enable :sessions
 get '/' do
 	directory = "./news_feed_posts"
 	@posts = Dir.glob(directory + "/*.post")
-	@user = current_user.id
+	@user = current_user
 	erb :hem
 end
 
@@ -57,13 +58,21 @@ post '/login' do
 	end
 end
 
-post '/logout' do
+get '/logout' do
 	session.clear
 	redirect '/'
 end
 
 post '/feed_post' do
-
+	if current_user == 1
+		time = Time.now
+		file_name = "./news_feed_posts/#{time.year}_#{time.month}_#{time.day}_#{time.hour}#{time.min}"
+		file_name = file_name + "," + Dir.glob("#{file_name}*").size.to_s + ".post"
+		f = File.new(file_name, "w")
+		f.write(params[:feed_text])
+		f.close
+		end
+	redirect '/'
 end
 
 get '/tjanster' do

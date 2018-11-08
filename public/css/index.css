@@ -98,8 +98,18 @@ p.rubrik1 {
 	/* font-family: Arial; */
 }
 
+.center{
+	margin-left:auto;
+	margin-right: auto;
+}
+
+.feed_form {
+	padding: 10px;
+}
+
 .feed_text_box {
-	width: 1000px;
+	width: 50vw;
+	height: 10vh;
 }
 
 .news_feed {
