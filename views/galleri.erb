@@ -1,7 +1,21 @@
-<% @pictures.each do |picture| %>
-	<div class="image_div">
-		<a href="./galleri/<%=File.basename(picture)%>">
-			<img src="<%= picture %>" width="100xp" height="100px" class="thumbnail">
-		</a>
+<div class="gallery_body">
+	<div class="gallery">
+		<% @pictures.each do |picture| %>
+		<div class="image_div">
+			<a href="./galleri/<%=File.basename(picture)%>">
+				<img src="<%= picture %>" width="100xp" height="100px" class="thumbnail">
+			</a>
+		</div>
+		<% end %>
 	</div>
-<% end %>
+
+	<% if logged_in? %>
+	<div class="logged_in_form">
+		<form class="form_upload_image" action="upload_image" method="post" enctype="multipart/form-data">
+			<input type="file" name="file">
+			<input type="submit" value="Skicka">
+		</form>
+	</div>
+	<% end %>
+
+</div>

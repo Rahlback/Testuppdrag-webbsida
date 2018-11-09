@@ -3,6 +3,8 @@ require "sinatra/reloader"
 require "bcrypt"
 require "date"
 
+require "./mail_bot.rb"
+
 layout 'layout.erb'
 
 $LANG = 'utf-8'
@@ -48,7 +50,7 @@ enable :sessions
 
 get '/' do
 	directory = "./news_feed_posts"
-	@posts = Dir.glob(directory + "/*.post")
+	@posts = Dir.glob(directory + "/*.post").reverse
 	@user = current_user
 	erb :hem
 end
@@ -109,10 +111,6 @@ post '/tjanster_form_post' do
 	redirect '/tjanster'
 end
 
-get '/kontakt' do
-	erb :kontakt
-end
-
 get '/galleri' do
 	directory = Dir.pwd
 	Dir.chdir("./public")
@@ -126,6 +124,43 @@ get '/galleri/:file' do
 	erb :galleri_show_single_image
 end
 
+post '/upload_image' do
+	filename = params[:file][:filename]
+	file = params[:file][:tempfile]
+
+	f = File.open("./public/bilder/galleri/#{filename}", "wb")
+	f.write(file.read)
+	f.close
+	redirect '/galleri'
+end
+
+delete '/delete_image' do
+end
+
 get '/login' do
 	erb :login
+end
+
+
+
+
+# Contact form handling
+
+get '/kontakt' do
+	erb :kontakt
+end
+
+get '/kontakt/mail' do
+	erb :skickat_mejl
+end
+
+post '/send_mail' do
+	mail = Mail.new
+	subject = "Jannes Inredning AB"
+	to = "rasmus.ahlback@gmail.com"
+	body = "Från: #{params[:name]} #{params[:email]}\n\n" +params[:message]
+
+
+	mail.create_simple_mail(subject, to, body)
+	redirect '/kontakt/mail'
 end
