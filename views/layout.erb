@@ -5,6 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="/css/index.css">
 	<!-- <script type="text/javascript" src="/js/test.js"></script> -->
 	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
 </head>
 <body>
 	<div id="container">
@@ -13,14 +15,37 @@
 			<a href="/" class="header_link">
 				<p id="home_button_text">Jannes Inredning</p>
 			</a>
-			<p><%= if (logged_in?) then current_user.username + ' är inloggad'end %></p>
+
 			<div id="navbar">
-				<ul>
-					<li><a href="/" >Hem</a> </li>
-					<li><a href="/tjanster" >Tjänster</a> </li>
-					<li><a href="/galleri" >Galleri</a> </li>
-					<li><a href="/kontakt" >Kontakt</a> </li>
-				</ul>
+
+				<div class="one left">
+					<ul>
+						<li><a href="/" >Hem</a> </li>
+						<li><a href="/tjanster" >Tjänster</a> </li>
+						<li><a href="/galleri" >Galleri</a> </li>
+						<li><a href="/kontakt" >Kontakt</a> </li>
+
+					</ul>
+				</div>
+				<div class="two">
+					<ul class="">
+						<li>
+							<% if (logged_in?) %>
+							<p><%= current_user.username + ' är inloggad' %></p>
+
+							<% else %>
+								<a href="/login">Logga in</a>
+							<% end %>
+
+						</li>
+						<li>
+							<% if (logged_in?) %>
+								<a href="/logout">Logga ut</a>
+							<% end %>
+
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 
