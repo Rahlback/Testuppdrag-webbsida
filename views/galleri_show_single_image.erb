@@ -1,1 +1,5 @@
-<img src="/bilder/galleri/<%=@image%>" class="big_image">
+<!-- <a href="" class="switch_image">Föregående bild</a>
+<a href="#" id="next_picture" class="switch_image">Nästa bild</a> -->
+
+
+<img src="/bilder/galleri/<%=File.basename(@clicked_image)%>" alt="" class="big_image">

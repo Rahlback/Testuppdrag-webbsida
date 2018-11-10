@@ -1,14 +1,16 @@
 
-<% if @user == nil %>
-	<form class="login_form" action="login" method="post">
-		Användarnamn: <input type="text" name="username" value="janne">
-		Lösenord: <input type="password" name="losenord" value="losenord">
-		<input type="submit"  value="Skicka">
+<div class="login_div">
+	<% if @user == nil %>
+	<form class="login_form left" action="login" method="post">
+		Användarnamn: <input type="text" name="username" value="janne" class="block">
+		Lösenord: <input type="password" name="losenord" value="losenord" class="block">
+		<input type="submit"  value="Skicka" class="block">
 	</form>
 
 	<% if (@error_message != nil) %>
-		<div>
-			<p> <%=@error_message %> </p>
-		</div>
+	<div>
+		<p> <%=@error_message %> </p>
+	</div>
 	<% end %>
-<% end %>
+	<% end %>
+</div>

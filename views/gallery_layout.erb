@@ -1,0 +1,78 @@
+<!Doctype html>
+<html>
+<head>
+	<title>Jannes Inredning AB</title>
+	<link rel="stylesheet" type="text/css" href="/css/index.css">
+	<!-- <script type="text/javascript" src="/js/test.js"></script> -->
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<script src="/js/gallery.js"></script>
+</head>
+<body>
+	<div id="container">
+
+		<div id="header" class="header_image">
+			<a href="/" class="header_link">
+				<p id="home_button_text">Jannes Inredning</p>
+			</a>
+
+			<div id="navbar">
+
+				<div class="one left">
+					<ul>
+						<li><a href="/" >Hem</a> </li>
+						<li><a href="/tjanster" >Tjänster</a> </li>
+						<li><a href="/galleri" >Galleri</a> </li>
+						<li><a href="/kontakt" >Kontakt</a> </li>
+
+					</ul>
+				</div>
+				<div class="two">
+					<ul class="">
+						<li>
+							<% if (logged_in?) %>
+							<p><%= current_user.username + ' är inloggad' %></p>
+
+							<% else %>
+								<a href="/login">Logga in</a>
+							<% end %>
+
+						</li>
+						<li>
+							<% if (logged_in?) %>
+								<a href="/logout">Logga ut</a>
+							<% end %>
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="content">
+			<%= yield %>
+		</div>
+		<div class="bottom_bar">
+			<div class="social_media_bar">
+				<ul>
+					<li>
+						<a href="https://www.facebook.com/janne">
+							<img src="https://en.facebookbrand.com/wp-content/uploads/2016/05/flogo_rgb_hex-brc-site-250.png" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="https://twitter.com/janne">
+							<img src="/bilder/icons/Twitter_Social_Icon_Square_Color.png" alt="">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="copyright">
+				<p>Copyright Jannes Inredning AB 2018</p>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

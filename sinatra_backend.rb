@@ -25,6 +25,14 @@ helpers do
 			return false
 		end
 	end
+
+	def get_gallery_images
+		directory = Dir.pwd
+		Dir.chdir("./public")
+		pictures = Dir.glob("./bilder/galleri/*")
+		Dir.chdir(directory)
+		return pictures
+	end
 end
 
 
@@ -113,15 +121,12 @@ post '/tjanster_form_post' do
 end
 
 get '/galleri' do
-	directory = Dir.pwd
-	Dir.chdir("./public")
-	@pictures = Dir.glob("./bilder/galleri/*")
-	Dir.chdir(directory)
+	@pictures = get_gallery_images
 	erb :galleri
 end
 
 get '/galleri/:file' do
-	@image = params[:file]
+	@clicked_image = params[:file]
 	erb :galleri_show_single_image
 end
 

@@ -112,6 +112,20 @@ div.two {
 	display: inline;
 }
 
+#login_div {
+	height: 100px;
+}
+
+.login_form {
+	display: block;
+}
+
+.block {
+	display:block;
+	margin-top: 5px;
+}
+
+
 /* Content */
 #content {
 	overflow:hidden;
@@ -183,7 +197,7 @@ p.rubrik1 {
 .big_image {
 	display:block;
 	margin:auto;
-	height: 80vh;
+	max-width: 800px;
 	padding: 5px;
 }
 
@@ -267,4 +281,29 @@ p.rubrik1 {
 }
 .left {
 	float: left;
+}
+
+
+
+
+a.switch_image:hover, a.switch_image:active {
+	background-color: black;
+	opacity: 0.5;
+	color:white;
+}
+
+.switch_image {
+	position: absolute;
+	margin-top: 30vh;
+	display: block;
+	text-decoration: none;
+	color:transparent;
+	height: 200px;
+}
+
+
+
+#next_picture {
+	position: absolute;
+	left: 70%;
 }
