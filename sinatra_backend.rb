@@ -84,6 +84,7 @@ post '/feed_post' do
 		file_name = "./news_feed_posts/#{time.year}_#{time.month}_#{time.day}_#{time.hour}#{time.min}"
 		file_name = file_name + "," + Dir.glob("#{file_name}*").size.to_s + ".post"
 		f = File.new(file_name, "w")
+		f.write("#{time.year}-#{time.month}-#{time.day} #{time.hour}:#{time.min}\n")
 		f.write(params[:feed_text])
 		f.close
 	end
@@ -91,7 +92,7 @@ post '/feed_post' do
 end
 
 get '/tjanster' do
-	@file = File.read("./public/custom_view/tjanster.custom")
+	@file = File.read("./public/custom_view/tjanster.html")
 	@user = current_user
 	erb :tjanster
 end
@@ -105,7 +106,7 @@ post '/tjanster_form_post' do
 	end
 
 	text = text + params[:tjanster_textarea]
-	f = File.open("./public/custom_view/tjanster.custom","w")
+	f = File.open("./public/custom_view/tjanster.html","w")
 	f.write(text)
 	f.close
 	redirect '/tjanster'

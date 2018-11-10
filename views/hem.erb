@@ -29,9 +29,13 @@
 <div class="news_feed">
 	<% @posts.each do |post| %>
 	<div class="news_item">
+		<% text = File.read(post) %>
+		<% text_paragraphs = text.split("\n") %>
+		<% text_paragraphs.each do |paragraph| %>
 		<p>
-			<%= File.read(post) %>
+			<%= paragraph %>
 		</p>
+		<% end %>
 	</div>
 	<% end %>
 </div>

@@ -119,6 +119,7 @@ div.two {
 	width: 60%;
 	margin:0;
 	max-width: 1000px;
+	min-height: 50vh;
 }
 
 .presentation {
@@ -200,7 +201,7 @@ p.rubrik1 {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	padding-left: 45%;
+	padding-left: 43%;
 }
 
 .social_media_bar li, .social_media_bar img {
@@ -243,8 +244,23 @@ p.rubrik1 {
 }
 
 
+.news_item {
+	margin: 10px;
+	border-style: ridge;
+	padding: 5px;
+}
 
+.map {
+	height: 400px;
+}
 
+.copyright {
+	margin-left: 40%;
+}
+
+.fill_width {
+	width: 100%;
+}
 
 .right {
 	float: right;
